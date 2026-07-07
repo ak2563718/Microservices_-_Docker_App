@@ -1,0 +1,28 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - auth
+      - course
+      - enrollment
+  
+  auth:
+    build: ./auth
+    container_name: auth
+    ports:
+      - "5001:5001"
+
+  course:
+    build: ./course
+    container_name: course
+    ports:
+      - "5002:5002"
+
+  enrollment:
+    build: ./enrollment
+    container_name: enrollment
+    ports:
+      - "5003:5003"

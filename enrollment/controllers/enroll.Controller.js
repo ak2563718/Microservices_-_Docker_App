@@ -30,9 +30,9 @@ export const getMycourse = asyncHandler(async(req, res, next)=>{
     }
     const decode = await jwt.verify(token, process.env.SECRET_KEY)
     const userId = decode.id;
-    const enroll = await Enroll.findOne({userId})
+    const enroll = await Enroll.find({userId})
     const courseId = enroll.courseId;
-    const response = await axios.get(`http://localhost:5002/course/${courseId}`)
+    const response = await axios.get(`http://course:5002/course/${courseId}`)
     if(!enroll){
         return next(new AppError('No course found', 404))
     }

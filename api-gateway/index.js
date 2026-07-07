@@ -9,9 +9,9 @@ app.use(express.urlencoded({extended:false}));
 app.use(cors())
 app.use(cookieParser())
 
-const auth_url = 'http://localhost:5001';
-const course_url = 'http://localhost:5002';
-const enroll_url = 'http://localhost:5003';
+const auth_url = 'http://auth:5001';
+const course_url = 'http://course:5002';
+const enroll_url = 'http://enrollment:5003';
 // 1. Login Service
 app.use('/api/auth', async( req, res)=>{
     try{
